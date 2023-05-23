@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+    <!--只有war包部署时才有用，解决war包部署不跳转error问题-->
+    <!-- 错误页面地址 -->
+    <error-page>
+        <!--0表示所有状态-->
+        <error-code>0</error-code>
+        <location>/error</location>
+    </error-page>
+</web-app>

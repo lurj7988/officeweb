@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements.  See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership.  The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License.  You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<!--suppress osmorcNonOsgiMavenDependency -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.original.officeweb</groupId>
+    <artifactId>officeweb-parent</artifactId>
+    <version>0.1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>OfficeWeb Online Preview</name>
+    <description>OfficeWeb Online Preview</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.8</jdk.version>
+        <spring-boot.version>2.7.5</spring-boot.version>
+    </properties>
+
+    <modules>
+        <module>officeweb</module>
+        <module>officeweb-core</module>
+        <module>officeweb-plugins</module>
+    </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>epoint-nexus</id>
+            <url>http://192.168.0.99:8081/nexus/content/repositories/dzjyrelease</url>
+        </repository>
+        <snapshotRepository>
+            <id>epoint-nexus</id>
+            <url>http://192.168.0.99:8081/nexus/content/repositories/dzjysnapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/lurj7988/officeweb.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>lurj</id>
+            <name>lurj</name>
+            <email>naulurenjie@outlook.com</email>
+            <url>https://github.com/lurj7988</url>
+        </developer>
+    </developers>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.epoint.boot</groupId>
+                <artifactId>spring-boot-epoint-commons</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epoint.boot</groupId>
+                <artifactId>spring-boot-starter-epoint-defense</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-txt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-pdf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-word</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-ppt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-compress</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.original.officeweb</groupId>
+                <artifactId>officeweb-ofd</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>3.0.0-M5</version>
+                    <configuration>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
+                        <generateReleasePoms>false</generateReleasePoms>
+                        <arguments>-DskipTests</arguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

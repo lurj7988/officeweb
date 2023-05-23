@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.pd-t-20 {
+    padding-top: 20px;
+}
+
+.error-main * {
+    box-sizing: border-box;
+}
+
+.error-main {
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    text-align: left;
+}
+
+.error-main-container {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.info-content {
+    width: 80%;
+    transform: translate(-55%, -50%);
+}
+
+.error-img-box {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+.error-img {
+    margin-left: 5%;
+    max-width: 80%;
+    max-height: 100%;
+}
+
+.error-title {
+    color: #234fa2;
+    font-size: 34px;
+    margin-bottom: 30px;
+    font-family: "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", "STHeitiSC-Light", "Tahoma", Arial, sans-serif;
+}
+
+.error-words,
+.error-author {
+    font-size: 14px;
+    color: #808080;
+    line-height: 20px;
+}
+
+.error-author {
+    margin-top: 35px;
+}
+
+.error-words-content {
+    text-indent: 2em;
+}
+
+.error-home {
+    background-color: #fff;
+    padding: 6px 30px;
+    display: inline-block;
+    border-radius: 2px;
+    margin-top: 41px;
+    border: 1px solid #467ce9;
+    color: #467ce9;
+    transition: all .1s linear;
+}
+
+.error-home:hover {
+    cursor: pointer;
+    background-color: #467ce9;
+    color: #fff;
+}
+
+.error-mark {
+    color: #0f7bff;
+}
+
+.error-text-record {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    color: #9b9b9b;
+}
+
+.error-search-box {
+    width: 350px;
+    padding-right: 38px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border: 1px solid #cccccc;
+    height: 38px;
+    line-height: 38px;
+    position: relative;
+}
+
+.error-search-input {
+    width: 100%;
+    border: none;
+    line-height: 36px;
+    padding-left: 10px;
+    color: #666;
+    background-color: transparent;
+    height: 36px;
+    outline: none;
+}
+
+.error-search {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url('../images/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

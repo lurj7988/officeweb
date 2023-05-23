@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.original.officeweb</groupId>
+        <artifactId>officeweb-parent</artifactId>
+        <version>0.1.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>officeweb-plugins</artifactId>
+    <packaging>pom</packaging>
+    <name>OfficeWeb Plugins</name>
+    <description>OfficeWeb Plugins</description>
+
+    <modules>
+        <module>officeweb-compress</module>
+        <module>officeweb-excel</module>
+        <module>officeweb-ofd</module>
+        <module>officeweb-pdf</module>
+        <module>officeweb-ppt</module>
+        <module>officeweb-txt</module>
+        <module>officeweb-word</module>
+    </modules>
+
+</project>
